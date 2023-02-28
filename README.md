@@ -93,7 +93,7 @@ To reflect the performance visually and realistically, we tested each algorithm 
     </tr>
     <tr>
         <td style="text-align:center"> DLinear </td>
-        <td style="text-align:center"> 0.3863 </td>
+        <td style="text-align:center"> <b>0.3863</b> </td>
         <td style="text-align:center"> 0.4007 </td>
         <td style="text-align:center"> 0.3140 </td>
         <td style="text-align:center"> 0.3711 </td>
@@ -107,13 +107,13 @@ To reflect the performance visually and realistically, we tested each algorithm 
     <tr>
         <td style="text-align:center"> NLinear </td>
         <td style="text-align:center"> 0.3924 </td>
-        <td style="text-align:center"> 0.4001 </td>
-        <td style="text-align:center"> 0.2888 </td>
-        <td style="text-align:center"> 0.3375 </td>
+        <td style="text-align:center"> <b>0.4001</b> </td>
+        <td style="text-align:center"> <b>0.2888</b> </td>
+        <td style="text-align:center"> <b>0.3375</b> </td>
         <td style="text-align:center"> 0.3486 </td>
-        <td style="text-align:center"> 0.3695 </td>
-        <td style="text-align:center"> 0.1814 </td>
-        <td style="text-align:center"> 0.2630 </td>
+        <td style="text-align:center"> <b>0.3695</b> </td>
+        <td style="text-align:center"> <b>0.1814</b> </td>
+        <td style="text-align:center"> <b>0.2630</b> </td>
         <td style="text-align:center"> <a href="https://arxiv.org/abs/2205.13504">Link</a> </td>
 	    <td style="text-align:center"> 2022 </td> 
     </tr>
@@ -123,7 +123,7 @@ To reflect the performance visually and realistically, we tested each algorithm 
         <td style="text-align:center"> 0.4218 </td>
         <td style="text-align:center"> 0.3263 </td>
         <td style="text-align:center"> 0.3688 </td>
-        <td style="text-align:center"> 0.3359 </td>
+        <td style="text-align:center"> <b>0.3359</b> </td>
         <td style="text-align:center"> 0.3761 </td>
         <td style="text-align:center"> 0.1844 </td>
         <td style="text-align:center"> 0.2643 </td>
