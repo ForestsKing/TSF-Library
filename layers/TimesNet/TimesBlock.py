@@ -6,14 +6,25 @@ from layers.TimesNet.ConvBlock import Inception_Block
 
 
 def FFT_for_Period(x, k=2):
+    # xf 中是以 idx/length 为频率的复数, 复数的绝对值即为振幅, 假设振幅越大越重要
+    # .rfft 即只返回共轭的右(正)半部分
     xf = torch.fft.rfft(x, dim=1)
+
+    # 模型认为每个 bs 每个 c 的周期特征相同
     frequency_list = abs(xf).mean(0).mean(-1)
+
+    # Freq[0]具有一些特殊含义，表示的是整个信号的能量值。
+    # Freq[1] 才表示整个序列没有周期，频率为 1/length, 周期为 length
     frequency_list[0] = 0
 
+    # 返回振幅最大的 k 个 idx
     _, top_list = torch.topk(frequency_list, k)
     top_list = top_list.detach().cpu().numpy()
+
+    # 周期为 1/频率 = length/idx
     period = x.shape[1] // top_list
 
+    # 模型认为每个 c 的周期特征相同，每个 bs 的周期特征不同
     return period, abs(xf).mean(-1)[:, top_list]
 
 

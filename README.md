@@ -2,7 +2,7 @@
 
 LTSFlib is an open-source library for long-term time series forecasting task.
 
-To reflect the performance visually and realistically, we tested each algorithm fairly with uniform data input and hardware platform. We ran each subtask for 3 iters and took the average value as the final result. 
+To reflect the performance visually and realistically, we test each algorithm fairly with uniform data input and hardware platform. We predict the future 96 timestamps based on the past 96 timestamps on four ETT datasets. We run each subtask for 3 iters and take the average value as the final result.
 
 The detailed results are as follows:
 
@@ -104,7 +104,7 @@ The detailed results are as follows:
         <td style="text-align:center"> 0.1914 </td>
         <td style="text-align:center"> 0.2879 </td>
         <td style="text-align:center"> <a href="https://arxiv.org/abs/2205.13504">Link</a> </td>
-        <td style="text-align:center"> 2022 </td>    
+        <td style="text-align:center"> 2023 </td>    
     </tr>
     <tr>
         <td style="text-align:center"> NLinear </td>
@@ -117,7 +117,7 @@ The detailed results are as follows:
         <td style="text-align:center"> <b>0.1814</b> </td>
         <td style="text-align:center"> <b>0.2630</b> </td>
         <td style="text-align:center"> <a href="https://arxiv.org/abs/2205.13504">Link</a> </td>
-	    <td style="text-align:center"> 2022 </td> 
+	    <td style="text-align:center"> 2023 </td> 
     </tr>
     <tr>
         <td style="text-align:center"> TimesNet </td>
@@ -125,18 +125,46 @@ The detailed results are as follows:
         <td style="text-align:center"> 0.4218 </td>
         <td style="text-align:center"> 0.3263 </td>
         <td style="text-align:center"> 0.3688 </td>
-        <td style="text-align:center"> <b>0.3359</b> </td>
+        <td style="text-align:center"> 0.3359 </td>
         <td style="text-align:center"> 0.3761 </td>
         <td style="text-align:center"> 0.1844 </td>
         <td style="text-align:center"> 0.2643 </td>
         <td style="text-align:center"> <a href="https://arxiv.org/abs/2210.02186">Link</a> </td>
-        <td style="text-align:center"> 2022 </td> 	
+        <td style="text-align:center"> 2023 </td> 	
+    </tr>
+    <tr>
+        <td style="text-align:center"> Crossformer </td>
+        <td style="text-align:center"> 0.4479 </td>
+        <td style="text-align:center"> 0.4602 </td>
+        <td style="text-align:center"> 1.1278 </td>
+        <td style="text-align:center"> 0.7961 </td>
+        <td style="text-align:center"> 0.3772 </td>
+        <td style="text-align:center"> 0.4116 </td>
+        <td style="text-align:center"> 0.2976 </td>
+        <td style="text-align:center"> 0.3794 </td>
+        <td style="text-align:center"> <a href="https://openreview.net/forum?id=vSVLM2j9eie">Link</a> </td>
+        <td style="text-align:center"> 2023 </td> 	
+    </tr>
+    <tr>
+        <td style="text-align:center"> Crossformer<sup>[1]</sup> </td>
+        <td style="text-align:center"> 0.4004 </td>
+        <td style="text-align:center"> 0.4376 </td>
+        <td style="text-align:center"> 1.0520 </td>
+        <td style="text-align:center"> 0.7184 </td>
+        <td style="text-align:center"> <b>0.3218</b> </td>
+        <td style="text-align:center"> 0.3727 </td>
+        <td style="text-align:center"> 0.7657 </td>
+        <td style="text-align:center"> 0.6018 </td>
+        <td style="text-align:center"> <a href="https://openreview.net/forum?id=vSVLM2j9eie">Link</a> </td>
+        <td style="text-align:center"> 2023 </td> 	
     </tr>
 </table>
 
+[1] When we set seq_len to 672 and seg_len to 12, the performance of Crossformer is similar to the original paper. Note that the input and output of this Crossformer are already different from other algorithms, so the worth of the test results is yet to be verified.
+
 ## Develop your own model
 
-- Add your model files to the folder `./layers/yourmodel/` and`./models/yourmodel.py`
+- Add your model files to the folder `./layers/yourmodel/` and`./models/yourmodel.py`.
 - Include the newly added model in the `Exp_Main.model_dict` of `./exp/exp_main.py`.
 - Create the corresponding scripts under the folder `./scripts/yourmodel.sh`.
 
@@ -160,3 +188,4 @@ This library is constructed based on the following repos:
 - DLinear: https://github.com/cure-lab/LTSF-Linear
 - NLinear: https://github.com/cure-lab/LTSF-Linear
 - TimesNet: https://github.com/thuml/TimesNet
+- Crossformer: https://github.com/Thinklab-SJTU/Crossformer

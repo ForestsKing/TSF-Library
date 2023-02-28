@@ -15,8 +15,9 @@ parser = argparse.ArgumentParser(description='Long Time Series Forecasting Libra
 
 # basic
 parser.add_argument('--is_training', type=int, default=1, help='status')
-parser.add_argument('--model', type=str, default='FEDformer',
-                    help='model name, options: [Reformer, Informer, Autoformer, FEDformer, NLinear, DLinear, TimesNet]')
+parser.add_argument('--model', type=str, default='Crossformer',
+                    help='model name, options: '
+                         '[Reformer, Informer, Autoformer, FEDformer, NLinear, DLinear, TimesNet, Crossformer]')
 
 # data
 parser.add_argument('--root_path', type=str, default='./data/ETT-small', help='root path of the data file')
@@ -61,6 +62,12 @@ parser.add_argument('--factor', type=int, default=3, help='attn factor')
 parser.add_argument('--distil', action='store_false',
                     help='whether to use distilling in encoder, using this argument means not using distilling',
                     default=True)
+
+# Crossformer
+parser.add_argument('--seg_len', type=int, default=12, help='segment length (L_seg)')
+parser.add_argument('--baseline', action='store_true',
+                    help='whether to use mean of past series as baseline for prediction', default=False)
+parser.add_argument('--merge_win', type=int, default=2, help='window size for segment merge')
 
 # optimization
 parser.add_argument('--num_workers', type=int, default=10, help='data loader num workers')
@@ -124,7 +131,9 @@ if args.is_training:
     f.write('>>> {} <<<'.format(setting[:-2]) + "  \n")
     f.write('MSE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mse_list), np.std(mse_list)) + "  \n")
     f.write('MAE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mae_list), np.std(mae_list)) + "  \n")
-    f.write('>>> {} <<<'.format(setting[:-2]) + "  \n")
+    f.write('>>> {} <<<'.format(setting[:-2]))
+    f.write('\n')
+    f.write('\n')
     f.close()
 
 else:
