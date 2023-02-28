@@ -2,7 +2,9 @@
 
 LTSFlib is an open-source library for long-term time series forecasting task.
 
-To reflect the performance visually and realistically, we tested each algorithm fairly with uniform data input and hardware platform. We ran each subtask for 3 iters and took the average value as the final result. The detailed results are as follows.
+To reflect the performance visually and realistically, we tested each algorithm fairly with uniform data input and hardware platform. We ran each subtask for 3 iters and took the average value as the final result. 
+
+The detailed results are as follows:
 
 <table>
     <tr>
@@ -131,3 +133,29 @@ To reflect the performance visually and realistically, we tested each algorithm 
         <td style="text-align:center"> 2022 </td> 	
     </tr>
 </table>
+## Develop your own model
+
+- Add your model files to the folder `./layers/yourmodel/` and`./models/yourmodel.py`
+- Include the newly added model in the `Exp_Main.model_dict` of `./exp/exp_main.py`.
+- Create the corresponding scripts under the folder `./scripts/yourmodel.sh`.
+
+## Contact
+
+If you have any questions or suggestions, feel free to contact:
+
+- Chengsen Wang ([cswang@bupt.edu.cn](mailto:cswang@bupt.edu.cn))
+- Jinming Wu ([kimor.wu@outlook.com](mailto:kimor.wu@outlook.com))
+
+or describe it in Issues.
+
+## Acknowledgement
+
+This library is constructed based on the following repos:
+
+- Reformer: https://github.com/lucidrains/reformer-pytorch
+- Informer: https://github.com/zhouhaoyi/Informer2020
+- Autoformer: https://github.com/thuml/Autoformer
+- FEDformer: https://github.com/MAZiqing/FEDformer
+- DLinear: https://github.com/cure-lab/LTSF-Linear
+- NLinear: https://github.com/cure-lab/LTSF-Linear
+- TimesNet: https://github.com/thuml/TimesNet
