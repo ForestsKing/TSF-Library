@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from reformer_pytorch import LSHSelfAttention
 
-from utils.masking import ProbMask
+from layers.Reformer.masking import ProbMask
 
 
 class ProbAttention(nn.Module):

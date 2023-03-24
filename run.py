@@ -34,6 +34,7 @@ parser.add_argument('--freq', type=str, default='h',
 parser.add_argument('--seq_len', type=int, default=96, help='input sequence length')
 parser.add_argument('--label_len', type=int, default=48, help='start token length')
 parser.add_argument('--pred_len', type=int, default=96, help='prediction sequence length')
+parser.add_argument('--percent', type=int, default=100, help='percent of train length')
 
 # basic model
 parser.add_argument('--enc_in', type=int, default=7, help='encoder input size')
@@ -99,47 +100,9 @@ print(args)
 
 Exp = Exp_Main
 
-if args.is_training:
-    mse_list, mae_list = [], []
-    for ii in range(args.itr):
-        setting = '{}_{}_ft{}_sl{}_ll{}_pl{}_{}'.format(
-            args.model,
-            args.data,
-            args.features,
-            args.seq_len,
-            args.label_len,
-            args.pred_len,
-            ii
-        )
-
-        exp = Exp(args)
-        print('>>>>>>>start training : {}>>>>>>>>>>>>>>>>>>>>>>>>>>'.format(setting))
-        exp.train(setting)
-
-        print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
-        mse, mae = exp.test(setting)
-        mse_list.append(mse)
-        mae_list.append(mae)
-
-        torch.cuda.empty_cache()
-    print('>>>>>>>>>>  {}  <<<<<<<<<<'.format(setting[:-2]))
-    print('MSE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mse_list), np.std(mse_list)))
-    print('MAE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mae_list), np.std(mae_list)))
-    print('>>>>>>>>>>  {}  <<<<<<<<<<'.format(setting[:-2]))
-
-    f = open("result.txt", 'a')
-    f.write('>>> {} <<<'.format(setting[:-2]) + "  \n")
-    f.write('MSE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mse_list), np.std(mse_list)) + "  \n")
-    f.write('MAE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mae_list), np.std(mae_list)) + "  \n")
-    f.write('>>> {} <<<'.format(setting[:-2]))
-    f.write('\n')
-    f.write('\n')
-    f.close()
-
-else:
-    ii = 0
-    setting = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_{}'.format(
-        args.model_id,
+mse_list, mae_list = [], []
+for ii in range(args.itr):
+    setting = '{}_{}_ft{}_sl{}_ll{}_pl{}_{}'.format(
         args.model,
         args.data,
         args.features,
@@ -150,6 +113,27 @@ else:
     )
 
     exp = Exp(args)
+
+    if args.is_training:
+        print('>>>>>>>start training : {}>>>>>>>>>>>>>>>>>>>>>>>>>>'.format(setting))
+        exp.train(setting)
+
     print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
-    exp.test(setting, test=1)
+    mse, mae = exp.test(setting)
+    mse_list.append(mse)
+    mae_list.append(mae)
+
     torch.cuda.empty_cache()
+print('>>>>>>>>>>  {}  <<<<<<<<<<'.format(setting[:-2]))
+print('MSE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mse_list), np.std(mse_list)))
+print('MAE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mae_list), np.std(mae_list)))
+print('>>>>>>>>>>  {}  <<<<<<<<<<'.format(setting[:-2]))
+
+f = open("result.txt", 'a')
+f.write('>>> {} <<<'.format(setting[:-2]) + "  \n")
+f.write('MSE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mse_list), np.std(mse_list)) + "  \n")
+f.write('MAE || Mean: {0:.4f} | Std : {1:.4f}'.format(np.mean(mae_list), np.std(mae_list)) + "  \n")
+f.write('>>> {} <<<'.format(setting[:-2]))
+f.write('\n')
+f.write('\n')
+f.close()

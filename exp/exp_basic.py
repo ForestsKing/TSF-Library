@@ -9,9 +9,6 @@ class Exp_Basic(object):
         self.device = self._acquire_device()
         self.model = self._build_model().to(self.device)
 
-    def _build_model(self):
-        raise NotImplementedError
-
     def _acquire_device(self):
         if self.args.use_gpu:
             os.environ["CUDA_VISIBLE_DEVICES"] = str(
@@ -23,7 +20,19 @@ class Exp_Basic(object):
             print('Use CPU')
         return device
 
+    def _build_model(self):
+        raise NotImplementedError
+
     def _get_data(self, *args, **kwargs):
+        pass
+
+    def _select_optimizer(self, *args, **kwargs):
+        pass
+
+    def _select_criterion(self, *args, **kwargs):
+        pass
+
+    def _process_one_batch(self, *args, **kwargs):
         pass
 
     def vali(self, *args, **kwargs):
