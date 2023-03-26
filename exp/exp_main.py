@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models import Crossformer, TimesNet, Reformer, Informer, Autoformer, FEDformer, NLinear, DLinear
+from models import Crossformer, TimesNet, Reformer, Informer, Autoformer, FEDformer, NLinear, DLinear, FPT
 from utils.metrics import metric
 from utils.tools import EarlyStopping, adjust_learning_rate, visual
 
@@ -31,6 +31,7 @@ class Exp_Main(Exp_Basic):
             'DLinear': DLinear,
             'TimesNet': TimesNet,
             'Crossformer': Crossformer,
+            'FPT': FPT,
         }
         model = model_dict[self.args.model].Model(self.args).float()
 

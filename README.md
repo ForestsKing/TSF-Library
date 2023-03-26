@@ -113,8 +113,8 @@ The detailed results are as follows:
         <td style="text-align:center"> <b>0.2888</b> </td>
         <td style="text-align:center"> <b>0.3375</b> </td>
         <td style="text-align:center"> 0.3486 </td>
-        <td style="text-align:center"> <b>0.3695</b> </td>
-        <td style="text-align:center"> <b>0.1814</b> </td>
+        <td style="text-align:center"> 0.3695 </td>
+        <td style="text-align:center"> 0.1814 </td>
         <td style="text-align:center"> <b>0.2630</b> </td>
         <td style="text-align:center"> <a href="https://arxiv.org/abs/2205.13504">Link</a> </td>
 	    <td style="text-align:center"> 2023 </td> 
@@ -134,33 +134,31 @@ The detailed results are as follows:
     </tr>
     <tr>
         <td style="text-align:center"> Crossformer </td>
-        <td style="text-align:center"> 0.4479 </td>
-        <td style="text-align:center"> 0.4602 </td>
-        <td style="text-align:center"> 1.1278 </td>
-        <td style="text-align:center"> 0.7961 </td>
-        <td style="text-align:center"> 0.3772 </td>
-        <td style="text-align:center"> 0.4116 </td>
-        <td style="text-align:center"> 0.2976 </td>
-        <td style="text-align:center"> 0.3794 </td>
-        <td style="text-align:center"> <a href="https://openreview.net/forum?id=vSVLM2j9eie">Link</a> </td>
-        <td style="text-align:center"> 2023 </td> 	
-    </tr>
-    <tr>
-        <td style="text-align:center"> Crossformer<sup>[1]</sup> </td>
         <td style="text-align:center"> 0.4004 </td>
         <td style="text-align:center"> 0.4376 </td>
         <td style="text-align:center"> 1.0520 </td>
         <td style="text-align:center"> 0.7184 </td>
-        <td style="text-align:center"> <b>0.3218</b> </td>
+        <td style="text-align:center"> 0.3218 </td>
         <td style="text-align:center"> 0.3727 </td>
         <td style="text-align:center"> 0.7657 </td>
         <td style="text-align:center"> 0.6018 </td>
         <td style="text-align:center"> <a href="https://openreview.net/forum?id=vSVLM2j9eie">Link</a> </td>
         <td style="text-align:center"> 2023 </td> 	
     </tr>
+    <tr>
+        <td style="text-align:center"> FPT </td>
+        <td style="text-align:center"> 0.3956 </td>
+        <td style="text-align:center"> 0.4128 </td>
+        <td style="text-align:center"> 0.3043 </td>
+        <td style="text-align:center"> 0.3575 </td>
+        <td style="text-align:center"> <b>0.3025</b> </td>
+        <td style="text-align:center"> <b>0.3554</b> </td>
+        <td style="text-align:center"> <b>0.1734</b> </td>
+        <td style="text-align:center"> 0.2633 </td>
+        <td style="text-align:center"> <a href="">Link</a> </td>
+        <td style="text-align:center"> 2023 </td> 	
+    </tr>
 </table>
-
-[1] When we set seq_len to 672 and seg_len to 12, the performance of Crossformer is similar to the original paper. Note that the input and output of this Crossformer are already different from other algorithms, so the worth of the test results is yet to be verified.
 
 ## Develop your own model
 

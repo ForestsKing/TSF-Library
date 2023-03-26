@@ -15,9 +15,9 @@ parser = argparse.ArgumentParser(description='Long Time Series Forecasting Libra
 
 # basic
 parser.add_argument('--is_training', type=int, default=1, help='status')
-parser.add_argument('--model', type=str, default='Crossformer',
+parser.add_argument('--model', type=str, default='FPT',
                     help='model name, options: '
-                         '[Reformer, Informer, Autoformer, FEDformer, NLinear, DLinear, TimesNet, Crossformer]')
+                         '[Reformer, Informer, Autoformer, FEDformer, NLinear, DLinear, TimesNet, Crossformer, FPT]')
 
 # data
 parser.add_argument('--root_path', type=str, default='./data/ETT-small', help='root path of the data file')
@@ -69,6 +69,13 @@ parser.add_argument('--seg_len', type=int, default=12, help='segment length (L_s
 parser.add_argument('--baseline', action='store_true',
                     help='whether to use mean of past series as baseline for prediction', default=False)
 parser.add_argument('--merge_win', type=int, default=2, help='window size for segment merge')
+
+# FPT
+parser.add_argument('--pretrain', type=bool, default=True)
+parser.add_argument('--freeze', type=bool, default=True)
+parser.add_argument('--gpt_layers', type=int, default=6)
+parser.add_argument('--patch_size', type=int, default=16)
+parser.add_argument('--stride', type=int, default=8)
 
 # optimization
 parser.add_argument('--num_workers', type=int, default=10, help='data loader num workers')

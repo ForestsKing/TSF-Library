@@ -1,10 +1,8 @@
 export CUDA_VISIBLE_DEVICES=1
 
 model=Crossformer
-#seq_len=672
-#seg_len=12
-seq_len=96
-seg_len=3
+seq_len=672
+seg_len=12
 
 # ETTh1
 python -u run.py \
