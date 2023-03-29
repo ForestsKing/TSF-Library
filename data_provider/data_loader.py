@@ -11,8 +11,10 @@ warnings.filterwarnings('ignore')
 
 
 class MyDataset(Dataset):
-    def __init__(self, root_path, data_path, data, flag, seq_len, pred_len, features, target, timeenc, freq, percent):
+    def __init__(self, root_path, data_path, data, flag, seq_len, label_len, pred_len, features, target, timeenc, freq,
+                 percent):
         self.seq_len = seq_len
+        self.label_len = label_len
         self.pred_len = pred_len
 
         type_map = {'train': 0, 'val': 1, 'test': 2}
@@ -87,8 +89,8 @@ class MyDataset(Dataset):
     def __getitem__(self, index):
         s_begin = index
         s_end = s_begin + self.seq_len
-        r_begin = s_end
-        r_end = r_begin + self.pred_len
+        r_begin = s_end - self.label_len
+        r_end = r_begin + self.label_len + self.pred_len
 
         seq_x = self.data_x[s_begin:s_end]
         seq_y = self.data_y[r_begin:r_end]

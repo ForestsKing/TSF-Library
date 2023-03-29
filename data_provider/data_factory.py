@@ -16,6 +16,7 @@ def data_provider(args, flag):
         data=args.data,
         flag=flag,
         seq_len=args.seq_len,
+        label_len=args.label_len,
         pred_len=args.pred_len,
         features=args.features,
         target=args.target,
