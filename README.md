@@ -155,7 +155,7 @@ The detailed results are as follows:
         <td style="text-align:center"> <b>0.3554</b> </td>
         <td style="text-align:center"> <b>0.1734</b> </td>
         <td style="text-align:center"> 0.2633 </td>
-        <td style="text-align:center"> <a href="">Link</a> </td>
+        <td style="text-align:center"> <a href="https://arxiv.org/pdf/2302.11939">Link</a> </td>
         <td style="text-align:center"> 2023 </td> 	
     </tr>
 </table>
