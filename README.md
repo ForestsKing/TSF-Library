@@ -1,6 +1,6 @@
-# Long-term Time Series Forecasting Library (LTSFlib)
+# Time Series Forecasting Library (TSFlib)
 
-LTSFlib is an open-source library for long-term time series forecasting task.
+TSFlib is an open-source library for time series forecasting task.
 
 To reflect the performance visually and realistically, we test each algorithm fairly with uniform data input and hardware platform. We predict the future 96 timestamps based on the past 96 timestamps on four ETT datasets. We run each subtask for 3 iters and take the average value as the final result.
 
